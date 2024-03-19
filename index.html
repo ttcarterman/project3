@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #474e5d;
+  font-family: Helvetica, sans-serif;
+  font-style: thick, solid, black;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  font-size: x-large;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* Full-width containers */
+  .container {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .container::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make all right containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
+  
+}
+
+</style>
+</head>
+<body>
+  <div>
+  <img src="ot1.jpg" style="position:absolute; top:1450px; right:30px;">
+  <img src="ot2.jpg" style="position:absolute; top:20px; right: 200px;">
+  <img src="ot3.jpg" style="position:absolute; top:950px; right:400px;">
+  <img src="ot4.jpg" style="position:absolute; top:400px; right:100px;">
+  <img src="ot5.jpg" style="position:absolute; top:200px; right:800px;">
+</div>
+<div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h2>570</h2>
+      <p>Mahommad is born in the city of Mecca</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>610</h2>
+      <p>The religion of Islam begins </p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>622</h2>
+      <p>Mahammed and his followers move out of Mecca. The Hijrah is the start of the calender</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>630</h2>
+    <p>The world becomes the center of attention. Mahommad gains control of the city</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>632</h2>
+      <p>Mahommad is the leader of islamic faith. he is 1/4 caliphs.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>634</h2>
+      <p>umar becomes the second caliph. the empire expands to the mid east</p>
+    </div>
+  </div>
+</div>
+<div class="timeline">
+    <div class="container left">
+      <div class="content">
+        <h2>644</h2>
+        <p>Uthman becomes the third caliph. he made the standarized version of quran.</p>
+      </div>
+    </div>
+    <div class="container right">
+      <div class="content">
+        <h2>656</h2>
+        <p>ali bin becomes the fourth caliph.</p>
+      </div>
+    </div>
+    <div class="container left">
+      <div class="content">
+        <h2>661 to 750</h2>
+        <p>They move the capital to damascus. after ali was assassinated.</p>
+      </div>
+    </div>
+    <div class="container right">
+      <div class="content">
+        <h2>711</h2>
+        <p>They will gain most of the peninsila. musslims enter spain.</p>
+      </div>
+    </div>
+    <div class="container left">
+      <div class="content">
+        <h2>1453</h2>
+        <p>The byzentine empire ends because the otomans took Constantinople.</p>
+      </div>
+    </div>
+    <div class="container right">
+      <div class="content">
+        <h2>1492</h2>
+        <p>The last stronghold in spain is defeated at granda after being pushed back.</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="container left">
+      <div class="content">
+        <h2>1517 to 1924</h2>
+        <p>After the ottomans conquer Egypt they claim the caliphate. </p>
+      </div>
+    </div>
+    <div class="container right">
+      <div class="content">
+        <h2>1529</h2>
+        <p>The ottomans were stopped because The Ottoman Empire is defeated.</p>
+      </div>
+    </div>
+    <div class="container left">
+      <div class="content">
+        <h2>1924</h2>
+        <p>The first president of turkey becomes a thing when the calipphate is abolished by Mastufa Atatrurk.</p>
+      </div>
+    </div>
+  </body>
+  </html>
+  
+
